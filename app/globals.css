@@ -1,22 +1,10 @@
 @import "tailwindcss";
 
+/* Vintage parchment + sandy red theme */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #f4eadb;   /* parchment */
+  --foreground: #1f1a16;   /* dark brown/ink */
+  --brand-red: #b35645;    /* sandy red */
 }
 
 body {
