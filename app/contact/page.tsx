@@ -1,172 +1,111 @@
-// app/contact/page.tsx
+const EMAIL = "info.schedule@pembertontailwheel.com";
+const PHONE_DISPLAY = "609-864-1366";
+const PHONE_TEL = "16098641366";
 
-export default function Contact() {
+export default function ContactPage() {
   return (
-    <main className="min-h-screen bg-[#f3eee4] text-[#1a1a1a]">
-      {/* PAGE INTRO */}
+    <div className="bg-[#f3eae1]">
+      {/* Top section */}
       <section className="border-b border-black/10">
-        <div className="mx-auto max-w-6xl px-6 py-10">
+        <div className="mx-auto max-w-6xl px-6 py-12">
           <h1 className="text-4xl font-bold tracking-tight">Contact Us</h1>
-          <p className="mt-2 max-w-2xl text-black/70">
+          <p className="mt-3 max-w-2xl text-black/70">
             Questions about tailwheel training, rates, or sightseeing? Reach out and we’ll get back to you.
           </p>
         </div>
       </section>
 
-      {/* CONTENT */}
-      <section>
-        <div className="mx-auto max-w-6xl px-6 py-10">
-          <div className="grid gap-8 lg:grid-cols-12">
-            {/* INFO CARD */}
-            <div className="lg:col-span-5">
-              <div className="rounded-2xl border border-black/10 bg-white/60 p-6 shadow-sm">
-                <h2 className="text-lg font-semibold">Info</h2>
+      {/* Content */}
+      <section className="mx-auto max-w-6xl px-6 py-10">
+        <div className="grid gap-8 md:grid-cols-2">
+          {/* Info card */}
+          <div className="rounded-2xl border border-black/10 bg-white/60 p-8 shadow-sm">
+            <h2 className="text-lg font-semibold">Info</h2>
 
-                <div className="mt-5 space-y-5 text-sm">
-                  <div>
-                    <div className="text-black/60">Phone (Call/Text)</div>
-                    <div className="text-xl font-semibold tracking-tight">609-864-1366</div>
-                  </div>
-
-                  <div>
-                    <div className="text-black/60">Email</div>
-                    <div className="font-medium">(To be added after domain is set up)</div>
-                  </div>
-
-                  <div>
-                    <div className="text-black/60">Operating Hours</div>
-                    <div className="font-medium">By appointment only • 7 days a week</div>
-                  </div>
-
-                  <div className="pt-2">
-                    <a
-                      href="#"
-                      className="inline-flex items-center justify-center rounded-xl bg-[#b35645] px-4 py-2 font-semibold text-white shadow-sm transition hover:opacity-95"
-                    >
-                      Follow us on Facebook
-                    </a>
-                    <p className="mt-2 text-xs text-black/50">
-                      (We’ll add the real Facebook link when they confirm it.)
-                    </p>
-                  </div>
-                </div>
+            <div className="mt-6 space-y-5 text-sm text-black/80">
+              <div>
+                <div className="font-medium">Phone (Call/Text)</div>
+                <a className="text-lg font-semibold hover:underline" href={`tel:${PHONE_TEL}`}>
+                  {PHONE_DISPLAY}
+                </a>
               </div>
-            </div>
 
-            {/* FORM CARD */}
-            <div className="lg:col-span-7">
-              <div className="rounded-2xl border border-black/10 bg-white/60 p-6 shadow-sm">
-                <h2 className="text-2xl font-bold tracking-tight">Send an Inquiry</h2>
-                <p className="mt-2 text-black/70">
-                  Fill this out and we’ll respond as soon as possible.
-                </p>
+              <div>
+                <div className="font-medium">Email</div>
+                <div className="text-lg font-semibold">{EMAIL}</div>
+              </div>
 
-                {/* No onSubmit yet (prevents Next.js server component event handler error). */}
-                <form className="mt-6 space-y-4">
-                  <div className="grid gap-4 sm:grid-cols-2">
-                    <div>
-                      <label className="text-sm font-medium" htmlFor="firstName">
-                        First name
-                      </label>
-                      <input
-                        id="firstName"
-                        name="firstName"
-                        type="text"
-                        placeholder="John"
-                        className="mt-1 w-full rounded-xl border border-black/15 bg-white px-4 py-3 text-sm outline-none focus:border-black/30"
-                      />
-                    </div>
+              <div>
+                <div className="font-medium">Operating Hours</div>
+                <div className="font-semibold">By appointment only • 7 days a week</div>
+              </div>
 
-                    <div>
-                      <label className="text-sm font-medium" htmlFor="lastName">
-                        Last name
-                      </label>
-                      <input
-                        id="lastName"
-                        name="lastName"
-                        type="text"
-                        placeholder="Smith"
-                        className="mt-1 w-full rounded-xl border border-black/15 bg-white px-4 py-3 text-sm outline-none focus:border-black/30"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid gap-4 sm:grid-cols-2">
-                    <div>
-                      <label className="text-sm font-medium" htmlFor="email">
-                        Email
-                      </label>
-                      <input
-                        id="email"
-                        name="email"
-                        type="email"
-                        placeholder="you@example.com"
-                        className="mt-1 w-full rounded-xl border border-black/15 bg-white px-4 py-3 text-sm outline-none focus:border-black/30"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="text-sm font-medium" htmlFor="phone">
-                        Phone
-                      </label>
-                      <input
-                        id="phone"
-                        name="phone"
-                        type="tel"
-                        placeholder="(609) 555-1234"
-                        className="mt-1 w-full rounded-xl border border-black/15 bg-white px-4 py-3 text-sm outline-none focus:border-black/30"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="text-sm font-medium" htmlFor="topic">
-                      What is this about?
-                    </label>
-                    <select
-                      id="topic"
-                      name="topic"
-                      defaultValue="training"
-                      className="mt-1 w-full rounded-xl border border-black/15 bg-white px-4 py-3 text-sm outline-none focus:border-black/30"
-                    >
-                      <option value="training">Tailwheel Training</option>
-                      <option value="rates">Rates / Scheduling</option>
-                      <option value="sightseeing">Sightseeing Tour</option>
-                      <option value="other">Other</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="text-sm font-medium" htmlFor="message">
-                      Message
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={6}
-                      placeholder="Tell us what you’re looking for (experience level, goals, preferred dates, etc.)"
-                      className="mt-1 w-full rounded-xl border border-black/15 bg-white px-4 py-3 text-sm outline-none focus:border-black/30"
-                    />
-                  </div>
-
-                  {/* Not wired yet */}
-                  <button
-                    type="button"
-                    className="inline-flex w-full items-center justify-center rounded-xl bg-[#b35645] px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:opacity-95 sm:w-auto"
-                  >
-                    Submit Inquiry
-                  </button>
-
-                  <p className="text-xs text-black/55">
-                    Note: This form is not connected to email yet. Once the domain email is created, we can wire this
-                    to send inquiries to that inbox.
-                  </p>
-                </form>
+              <div className="pt-2">
+                {/* Don’t link yet if you don’t want. Put # for now. */}
+                <a
+                  href="#"
+                  className="inline-flex rounded-lg bg-[#b35645] px-5 py-3 text-sm font-semibold text-white hover:brightness-110"
+                >
+                  Follow us on Facebook
+                </a>
               </div>
             </div>
           </div>
+
+          {/* Inquiry form */}
+          <div className="rounded-2xl border border-black/10 bg-white/60 p-8 shadow-sm">
+            <h2 className="text-lg font-semibold">Send an Inquiry</h2>
+            <p className="mt-2 text-sm text-black/70">
+              For now, this form is <span className="font-semibold">not connected</span> to email yet.
+              Once the domain email is confirmed, we can wire this to send to{" "}
+              <span className="font-semibold">{EMAIL}</span>.
+            </p>
+
+            {/* No JS handler here */}
+            <form className="mt-6 space-y-4" action="#" method="post">
+              <div>
+                <label className="text-sm font-medium">Name</label>
+                <input
+                  className="mt-1 w-full rounded-lg border border-black/10 bg-white px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-[#b35645]/40"
+                  placeholder="Your name"
+                  name="name"
+                />
+              </div>
+
+              <div>
+                <label className="text-sm font-medium">Phone or Email</label>
+                <input
+                  className="mt-1 w-full rounded-lg border border-black/10 bg-white px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-[#b35645]/40"
+                  placeholder="How should we reach you?"
+                  name="contact"
+                />
+              </div>
+
+              <div>
+                <label className="text-sm font-medium">Message</label>
+                <textarea
+                  className="mt-1 min-h-[140px] w-full rounded-lg border border-black/10 bg-white px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-[#b35645]/40"
+                  placeholder="Tell us what you're looking for…"
+                  name="message"
+                />
+              </div>
+
+              {/* Not wired yet: button is disabled to avoid confusion */}
+              <button
+                type="button"
+                disabled
+                className="w-full rounded-lg bg-[#b35645]/60 px-5 py-3 text-sm font-semibold text-white cursor-not-allowed"
+              >
+                Submit Inquiry (Coming Soon)
+              </button>
+
+              <p className="text-xs text-black/60">
+                Once connected, inquiries will send to <span className="font-semibold">{EMAIL}</span>.
+              </p>
+            </form>
+          </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }
