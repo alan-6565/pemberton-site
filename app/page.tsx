@@ -1,6 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 
+const PHONE_LINK = "+16098641366";
+const EMAIL = "info.schedule@pembertontailwheel.com";
+
 export default function Home() {
   return (
     <div className="bg-[#f3efe6]">
@@ -33,21 +36,37 @@ export default function Home() {
             (3NJ1)
           </p>
 
-          {/* Button (do not link yet) */}
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          {/* Buttons */}
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center">
+            {/* FIXED: dialer link */}
             <a
-              href="#"
+              href={`tel:${PHONE_LINK}`}
               className="rounded-md bg-[#b35645] px-8 py-3 font-semibold text-white shadow-sm hover:opacity-90"
             >
               Call Us Now
             </a>
+
+            {/* existing */}
             <Link
               href="/aircraft-rates"
               className="rounded-md border border-white/30 bg-white/10 px-8 py-3 font-semibold text-white backdrop-blur hover:bg-white/15"
             >
               View Rates
             </Link>
+
+            {/* MOBILE BACKUP: if nav tabs aren’t visible, user can still contact */}
+            <a
+              href={`mailto:${EMAIL}`}
+              className="sm:hidden rounded-md border border-white/30 bg-white/10 px-8 py-3 font-semibold text-white backdrop-blur hover:bg-white/15"
+            >
+              Email Us
+            </a>
           </div>
+
+          {/* Optional tiny helper text on mobile */}
+          <p className="mt-4 text-xs text-white/70 sm:hidden">
+            Tap “Email Us” if you don’t see the menu tabs on mobile.
+          </p>
         </div>
       </section>
 
@@ -65,7 +84,7 @@ export default function Home() {
             <h2 className="text-4xl font-bold">Our Mission</h2>
           </div>
 
-          <div className="mt-8 space-y-6 text-white/95 leading-relaxed">
+          <div className="mt-8 space-y-6 leading-relaxed text-white/95">
             <p>
               Tailwheel aircraft connect pilots to the roots of aviation—the era
               when stick-and-rudder skill defined a pilot. Training in these
@@ -123,7 +142,7 @@ export default function Home() {
       <section className="bg-[#f3efe6]">
         <div className="mx-auto max-w-6xl px-4 py-16">
           <h2 className="text-4xl font-bold">Train With Us</h2>
-          <div className="mt-8 space-y-6 text-black/80 leading-relaxed">
+          <div className="mt-8 space-y-6 leading-relaxed text-black/80">
             <p>
               We operate out of Pemberton Aerodrome (3NJ1), ideally situated in
               the heart of New Jersey, making it one of the most convenient and
@@ -152,7 +171,7 @@ export default function Home() {
       <section className="bg-[#b35645] text-white">
         <div className="mx-auto max-w-6xl px-4 py-16">
           <h2 className="text-4xl font-bold">Let’s Go Sightseeing</h2>
-          <div className="mt-8 space-y-6 text-white/95 leading-relaxed">
+          <div className="mt-8 space-y-6 leading-relaxed text-white/95">
             <p>
               You don’t have to be a pilot to experience the thrill of flying in
               a taildragger—anyone can fly with us and see the region from an
