@@ -5,9 +5,11 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
+const EMAIL = "info.schedule@pembertontailwheel.com";
+
 const NAV = [
   { href: "/", label: "Home" },
-  { href: "/rates", label: "Rates" },
+  { href: "/aircraft-rates", label: "Rates" }, // ✅ FIXED
   { href: "/faqs", label: "FAQs" },
   { href: "/contact", label: "Contact" },
 ];
@@ -16,12 +18,10 @@ export default function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
-  // Close menu on route change
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
 
-  // Close on Escape
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") setOpen(false);
@@ -31,17 +31,13 @@ export default function SiteHeader() {
   }, []);
 
   const activeClass = (href: string) =>
-    pathname === href
-      ? "text-black font-semibold"
-      : "text-black/70 hover:text-black";
+    pathname === href ? "text-black font-semibold" : "text-black/70 hover:text-black";
 
   return (
     <header className="sticky top-0 z-50 border-b border-black/10 bg-[#f3eee4]/95 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-6">
-        {/* Left: Logo + Brand */}
         <Link href="/" className="flex items-center gap-3">
           <div className="relative h-10 w-10 overflow-hidden rounded-full border border-black/10 bg-white">
-            {/* If your logo file is in /public/logo.png */}
             <Image
               src="/logo.png"
               alt="Pemberton Tailwheel Training"
@@ -67,7 +63,6 @@ export default function SiteHeader() {
             </Link>
           ))}
 
-          {/* Call/Text button */}
           <a
             href="tel:+16098641366"
             className="rounded-lg bg-[#b35645] px-4 py-2 text-sm font-semibold text-white hover:opacity-90"
@@ -76,7 +71,7 @@ export default function SiteHeader() {
           </a>
         </nav>
 
-        {/* Mobile hamburger */}
+        {/* Mobile controls */}
         <div className="flex items-center gap-2 md:hidden">
           <a
             href="tel:+16098641366"
@@ -92,7 +87,6 @@ export default function SiteHeader() {
             onClick={() => setOpen((v) => !v)}
             className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-black/10 bg-white hover:bg-black/5"
           >
-            {/* Icon */}
             <span className="relative block h-4 w-5">
               <span
                 className={[
@@ -136,6 +130,14 @@ export default function SiteHeader() {
                   {item.label}
                 </Link>
               ))}
+
+              {/* Extra useful action: email (mobile-friendly) */}
+              <a
+                href={`mailto:${EMAIL}`}
+                className="rounded-lg px-3 py-2 text-sm text-black/80 hover:bg-black/5 hover:text-black"
+              >
+                Email Us
+              </a>
             </div>
           </nav>
         </div>
